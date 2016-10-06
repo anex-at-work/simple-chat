@@ -1,0 +1,25 @@
+*, *::before, *::after
+  box-sizing: border-box
+body, p
+  margin: 0
+
+.container
+  max-width: 800px
+  margin: 0 auto
+  &::before, &::after
+    content: ' '
+    display: table
+  &::after
+    clear: both
+  + .container
+    margin-top: 10px
+.grid + .grid
+  margin-top: 10px
+main
+  strong + strong
+    margin-right: 10px
+
+.pull--left
+  float: left
+.pull--right
+  float: right

@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title SimpleChat
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = action_cable_meta_tag
+    = csrf_meta_tags
+  body
+    header.container
+      nav.pull--left
+        a href='#jquery_interval' data-turbolinks='false' jQuery + setInterval
+        a< href='#action_cable' data-turbolinks='false' ActionCable
+      - if 'users' != params[:controller]
+        a.pull--right href=users_path target='_blank' Изменить имена
+    main.container
+      = yield
+    footer
