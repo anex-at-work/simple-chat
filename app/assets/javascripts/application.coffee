@@ -11,7 +11,7 @@
       jquery_interval: JqueryInterval
       action_cable: WithActionCable
     try
-      new scenarios[location.hash[1..-1] if location.hash? || 'jquery_interval']
+      new scenarios[(location.hash[1..-1] if location.hash?) || 'jquery_interval']
     catch error
       console.error error
 
@@ -23,7 +23,7 @@
         users:
           nickname: @value
     .fail (j, s)->
-      console.error j.responseText || s
+      console.error(j.responseText || s) if 200 != j.status
   $(document).on 'click', 'header a', (e)->
     document.location.reload()
 ) jQuery

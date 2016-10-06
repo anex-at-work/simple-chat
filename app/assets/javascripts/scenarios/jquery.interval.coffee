@@ -1,6 +1,7 @@
 'use strict'
 class @JqueryInterval
   constructor: ->
+    return if 0 == $('main strong').length
     setInterval ()=>
       @send()
     , 2500
@@ -14,7 +15,7 @@ class @JqueryInterval
     .done (d)->
       jQuery("main strong[data-id='#{diff.id}']").html(diff.nickname) for diff in d
     .fail (j, s)->
-      console.error j.responseText || s
+      console.error(j.responseText || s) if 200 != j.status
 
   data: ->
     ret = {}
