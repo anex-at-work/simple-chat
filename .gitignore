@@ -21,8 +21,6 @@
 .byebug_history
 
 /.capistrano
-/config/database.yml
-/config/secrets.yml
 /public/*
 .project
 
